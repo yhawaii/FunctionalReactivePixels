@@ -21,6 +21,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     /**
+     
+     https://api.500px.com/v1/oauth/access_token 403 Forbidden error solution
+     
      Because the #https://github.com/500px/500px-iOS-api# project was DEPRECATED ,use the auth api to login will fail.
      
      Here's solution,you can modify the `PXAPIHelper+Auth.m` file,the url `https://github.com/500px/500px-iOS-api/blob/master/PXAPI/PXAPIHelper%2BAuth.m#L47` ,url encode the username and password :
