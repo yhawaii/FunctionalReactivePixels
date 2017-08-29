@@ -20,6 +20,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    /**
+     Because the #https://github.com/500px/500px-iOS-api# project was DEPRECATED ,use the auth api to login will fail.
+     
+     Here's solution,you can modify the `PXAPIHelper+Auth.m` file,the url `https://github.com/500px/500px-iOS-api/blob/master/PXAPI/PXAPIHelper%2BAuth.m#L47` ,url encode the username and password :
+    
+     1. import the header file `#import "NSString+URLEncode.h"`,the code can be found from `https://github.com/kevinrenskers/NSString-URLEncode`
+     
+     2. encode the params,code like this:
+     
+     `NSDictionary *accessTokenOptions = @{ @"x_auth_mode": @"client_auth", @"x_auth_password": [password URLEncode], @"x_auth_username" : [username URLEncode]};`
+    */
     NSString *consumerKey = @"DC2To2BS0ic1ChKDK15d44M42YHf9gbUJgdFoF0m";
     NSString *consumerSecret = @"i8WL4chWoZ4kw9fh3jzHK7XzTer1y5tUNvsTFNnB";
     
